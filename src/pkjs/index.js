@@ -3,8 +3,8 @@ var symbol = 0;
 var qDogePrice = 'https://chain.so/api/v2/get_price/DOGE/USD';
 var qDogeBalance = 'https://dogechain.info/api/v1/address/balance/';
 var qCurrency = 'https://v6.exchangerate-api.com/v6/e65e3344d67e23f7e847a141/pair/USD/';
-var qDogeBalanceParam = '';
-var qCurrencyParam = '';
+var qDogeBalanceParam = 'DCPqf7Fysgau13wexX8y87serrZQEJLD28';
+var qCurrencyParam = 'CNY';
 var price = 0;
 var amountUSD = 0;
 var balance = 0;
@@ -60,11 +60,10 @@ Pebble.addEventListener('ready', function (e) {
   if (amount) {
     Pebble.sendAppMessage({ '0': amount });
   }
+  getPrice();
 });
 
 Pebble.addEventListener('appmessage', function (e) {
-  qDogeBalanceParam = e.payload[0];
-  qCurrencyParam = e.payload[1];
   getPrice();
   console.log('amount request start.');
 });

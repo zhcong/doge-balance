@@ -1,8 +1,5 @@
 #include <pebble.h>
 
-#define BALANCE_ADRESS "DCPqf7Fysgau13wexX8y87serrZQEJLD28"
-#define CURRENCY "CNY"
-
 static Window *s_main_window;
 static TextLayer *s_doge_ground_balance_layer;
 static TextLayer *s_doge_balance_layer;
@@ -15,8 +12,7 @@ static bool request_data()
 {
   DictionaryIterator *iter;
   app_message_outbox_begin(&iter);
-  dict_write_cstring(iter, 0, BALANCE_ADRESS);
-  dict_write_cstring(iter, 1, CURRENCY);
+  dict_write_cstring(iter, 0, "amount");
   dict_write_end(iter);
   app_message_outbox_send();
   APP_LOG(APP_LOG_LEVEL_DEBUG, "[doge-balance]send request.");
@@ -69,7 +65,7 @@ static void window_load(Window *window)
   s_doge_balance_layer = text_layer_create(GRect(0, 100, bounds.size.w, 68));
   text_layer_set_background_color(s_doge_balance_layer, GColorChromeYellow);
   text_layer_set_text_color(s_doge_balance_layer, GColorBlack);
-  text_layer_set_text(s_doge_balance_layer, "...");
+  text_layer_set_text(s_doge_balance_layer, "!");
   text_layer_set_text_alignment(s_doge_balance_layer, GTextAlignmentCenter);
   text_layer_set_font(s_doge_balance_layer, fonts_get_system_font(FONT_KEY_LECO_20_BOLD_NUMBERS));
   layer_add_child(window_layer, text_layer_get_layer(s_doge_balance_layer));
