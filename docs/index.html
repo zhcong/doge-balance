@@ -9,7 +9,7 @@
     </style>
 </head>
 
-<body bgcolor="#FFAA00">
+<body bgcolor="#FFAA00" onload="load()">
     <div style="width: 100%; height: 500px;">
         <div style="width: 100%; height:150px;"><img style="margin: auto;"
                 src="https://dogecoin.com/assets/img/multidoge.png"></div>
@@ -23,9 +23,12 @@
 </body>
 <script type="text/javascript">
     function save() {
-        console.log(document.getElementById("address").value);
         localStorage.setItem("adress", document.getElementById("address").value);
         localStorage.setItem("currency", document.getElementById("currency").value);
+    }
+    function load() {
+        document.getElementById("address").value = localStorage.getItem("adress");
+        document.getElementById("currency").value = localStorage.getItem("currency");
     }
 </script>
 
