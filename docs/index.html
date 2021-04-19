@@ -25,6 +25,11 @@
     function save() {
         localStorage.setItem("address", document.getElementById("address").value);
         localStorage.setItem("currency", document.getElementById("currency").value);
+        var options = {
+            "address": document.getElementById("address").value,
+            "currency": document.getElementById("currency").value
+        }
+        document.location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
     }
     function load() {
         document.getElementById("address").value = localStorage.getItem("address");

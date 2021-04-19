@@ -76,8 +76,12 @@ Pebble.addEventListener('appmessage', function (e) {
 });
 
 Pebble.addEventListener('showConfiguration', function() {
-  // public setting
   var url = 'https://zhcong.github.io/doge-balance/';
   Pebble.openURL(url);
 });
 
+Pebble.addEventListener('webviewclosed', function(e) {
+  var config = JSON.parse(decodeURIComponent(e.response));
+  localStorage.setItem('address', config.address);
+  localStorage.setItem('currency', config.currency);
+});

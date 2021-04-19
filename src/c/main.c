@@ -65,7 +65,7 @@ static void window_load(Window *window)
   s_doge_balance_layer = text_layer_create(GRect(0, 100, bounds.size.w, 68));
   text_layer_set_background_color(s_doge_balance_layer, GColorChromeYellow);
   text_layer_set_text_color(s_doge_balance_layer, GColorBlack);
-  text_layer_set_text(s_doge_balance_layer, "!");
+  text_layer_set_text(s_doge_balance_layer, "-");
   text_layer_set_text_alignment(s_doge_balance_layer, GTextAlignmentCenter);
   text_layer_set_font(s_doge_balance_layer, fonts_get_system_font(FONT_KEY_LECO_20_BOLD_NUMBERS));
   layer_add_child(window_layer, text_layer_get_layer(s_doge_balance_layer));
