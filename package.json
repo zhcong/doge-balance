@@ -2,7 +2,11 @@
   "name": "doge-balance",
   "author": "zhcong",
   "version": "1.0.0",
-  "keywords": ["doge","balance","coin"],
+  "keywords": [
+    "doge",
+    "balance",
+    "coin"
+  ],
   "private": true,
   "dependencies": {},
   "pebble": {
@@ -12,6 +16,9 @@
     "enableMultiJS": true,
     "targetPlatforms": [
       "basalt"
+    ],
+    "capabilities": [
+      "configurable"
     ],
     "watchapp": {
       "watchface": false

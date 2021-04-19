@@ -3,8 +3,8 @@ var symbol = 0;
 var qDogePrice = 'https://chain.so/api/v2/get_price/DOGE/USD';
 var qDogeBalance = 'https://dogechain.info/api/v1/address/balance/';
 var qCurrency = 'https://v6.exchangerate-api.com/v6/e65e3344d67e23f7e847a141/pair/USD/';
-var qDogeBalanceParam = 'DCPqf7Fysgau13wexX8y87serrZQEJLD28';
-var qCurrencyParam = 'CNY';
+var qDogeBalanceParam = '';
+var qCurrencyParam = '';
 var price = 0;
 var amountUSD = 0;
 var balance = 0;
@@ -55,6 +55,9 @@ function pushAmount(currencyR) {
 }
 
 Pebble.addEventListener('ready', function (e) {
+  qDogeBalanceParam = localStorage.getItem('address');
+  qCurrencyParam = localStorage.getItem('currency');
+
   var amount = localStorage.getItem('doge-amount');
   console.log("amount=" + amount);
   if (amount) {
@@ -64,7 +67,17 @@ Pebble.addEventListener('ready', function (e) {
 });
 
 Pebble.addEventListener('appmessage', function (e) {
+  qDogeBalanceParam = localStorage.getItem('address');
+  qCurrencyParam = localStorage.getItem('currency');
+  console.log(qDogeBalanceParam)
+  console.log(qCurrencyParam)
   getPrice();
   console.log('amount request start.');
+});
+
+Pebble.addEventListener('showConfiguration', function() {
+  // public setting
+  var url = 'https://zhcong.github.io/doge-balance/';
+  Pebble.openURL(url);
 });
 

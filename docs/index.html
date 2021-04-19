@@ -23,11 +23,11 @@
 </body>
 <script type="text/javascript">
     function save() {
-        localStorage.setItem("adress", document.getElementById("address").value);
+        localStorage.setItem("address", document.getElementById("address").value);
         localStorage.setItem("currency", document.getElementById("currency").value);
     }
     function load() {
-        document.getElementById("address").value = localStorage.getItem("adress");
+        document.getElementById("address").value = localStorage.getItem("address");
         document.getElementById("currency").value = localStorage.getItem("currency");
     }
 </script>
