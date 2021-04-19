@@ -1,0 +1,33 @@
+{
+  "name": "doge-balance",
+  "author": "zhcong",
+  "version": "1.0.0",
+  "keywords": ["doge","balance","coin"],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "doge-balance",
+    "uuid": "691346eb-31ea-4c9d-9a7c-b41e8ef7e446",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "basalt"
+    ],
+    "watchapp": {
+      "watchface": false
+    },
+    "messageKeys": [
+      "dummy"
+    ],
+    "resources": {
+      "media": [
+        {
+          "menuIcon": true,
+          "type": "png",
+          "name": "IMAGE_MENU_ICON",
+          "file": "images/logo.png"
+        }
+      ]
+    }
+  }
+}
