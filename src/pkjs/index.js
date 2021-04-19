@@ -69,8 +69,6 @@ Pebble.addEventListener('ready', function (e) {
 Pebble.addEventListener('appmessage', function (e) {
   qDogeBalanceParam = localStorage.getItem('address');
   qCurrencyParam = localStorage.getItem('currency');
-  console.log(qDogeBalanceParam)
-  console.log(qCurrencyParam)
   getPrice();
   console.log('amount request start.');
 });
