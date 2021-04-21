@@ -3,6 +3,7 @@
 static Window *s_main_window;
 static TextLayer *s_doge_ground_balance_layer;
 static TextLayer *s_doge_balance_layer;
+static TextLayer *s_button_balance_layer;
 static char s_doge_balance[10];
 
 /**
@@ -58,11 +59,11 @@ static void window_load(Window *window)
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
 
-  s_doge_ground_balance_layer = text_layer_create(GRect(0, 0, bounds.size.w, 100));
+  s_doge_ground_balance_layer = text_layer_create(GRect(0, 0, bounds.size.w, 72));
   text_layer_set_background_color(s_doge_ground_balance_layer, GColorChromeYellow);
   layer_add_child(window_layer, text_layer_get_layer(s_doge_ground_balance_layer));
 
-  s_doge_balance_layer = text_layer_create(GRect(0, 100, bounds.size.w, 68));
+  s_doge_balance_layer = text_layer_create(GRect(0, 72, bounds.size.w, 100));
   text_layer_set_background_color(s_doge_balance_layer, GColorChromeYellow);
   text_layer_set_text_color(s_doge_balance_layer, GColorBlack);
   text_layer_set_text(s_doge_balance_layer, "-");
@@ -70,6 +71,10 @@ static void window_load(Window *window)
   text_layer_set_font(s_doge_balance_layer, fonts_get_system_font(FONT_KEY_LECO_20_BOLD_NUMBERS));
   layer_add_child(window_layer, text_layer_get_layer(s_doge_balance_layer));
 
+  s_button_balance_layer = text_layer_create(GRect(140, 69, 3, 30));
+  text_layer_set_background_color(s_button_balance_layer, GColorBlack);
+  layer_add_child(window_layer, text_layer_get_layer(s_button_balance_layer));
+ 
   request_data();
 }
 
@@ -77,6 +82,7 @@ static void window_unload(Window *window)
 {
   text_layer_destroy(s_doge_balance_layer);
   text_layer_destroy(s_doge_ground_balance_layer);
+  text_layer_destroy(s_button_balance_layer);
 }
 
 static void init(void)
